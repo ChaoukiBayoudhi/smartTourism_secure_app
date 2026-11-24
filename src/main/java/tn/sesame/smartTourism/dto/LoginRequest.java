@@ -1,6 +1,14 @@
 package tn.sesame.smartTourism.dto;
 
-import lombok.NonNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
-public record LoginRequest(@NonNull String email, @NonNull String password) {
+public record LoginRequest(
+        @NotBlank(message = "email could not be blank")
+        @Email(message = "email must be valid")
+        String email,
+
+        @NotBlank(message = "password could not be blank")
+        String password
+) {
 }
